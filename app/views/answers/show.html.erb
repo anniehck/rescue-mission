@@ -1,0 +1,12 @@
+
+<div class="answer">
+  <p class="description">
+    <strong>Answers:</strong>
+
+    <%= @answer.description %>
+  </p>
+
+  <% unless @question.user.nil? %>
+    Answered by: <%= @question.user.username %>
+  <% end %>
+</div>

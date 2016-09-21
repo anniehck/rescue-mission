@@ -1,0 +1,27 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+  <div id="error_explanation">
+    <h3>There are <span class="error"><%= @question.errors.count %> errors</span> in your submission. Please retry.</h3>
+
+    <ul>
+      <% @question.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

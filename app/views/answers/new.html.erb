@@ -1,0 +1,20 @@
+<h2>New Answer for <%= @question.title %></h2>
+
+<%= form_for [@question, @answer] do |f| %>
+  <% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h3>There are <span class="error"><%= @answer.errors.count %> errors</span> in your submission. Please retry.</h3>
+
+    <ul>
+      <% @answer.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+<% end %>
